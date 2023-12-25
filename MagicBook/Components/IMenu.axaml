@@ -1,0 +1,125 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:cover="using:MagicBook.Helper.Cover"
+        xmlns:controls="using:MagicBook.Components">
+    <Design.PreviewWith>
+        <StackPanel>
+            <controls:IMenu MessageNotify="6" Width="208">
+                <controls:IMenu.Logo>
+                    <Svg Path="/Assets/Icons/Star.svg" />
+                </controls:IMenu.Logo>
+                <controls:IMenu.Title>
+                    <TextBlock Text="Item" />
+                </controls:IMenu.Title>
+            </controls:IMenu>
+            <controls:IMenu Width="208">
+                <controls:IMenu.Logo>
+                    <Svg Path="/Assets/Icons/Star.svg" />
+                </controls:IMenu.Logo>
+                <controls:IMenu.Title>
+                    <TextBlock Text="Item" />
+                </controls:IMenu.Title>
+            </controls:IMenu>
+            <controls:IMenu Width="208" Classes="Min">
+                <controls:IMenu.Logo>
+                    <Svg Path="/Assets/Icons/Star.svg" />
+                </controls:IMenu.Logo>
+                <controls:IMenu.Title>
+                    <TextBlock Text="Item" />
+                </controls:IMenu.Title>
+            </controls:IMenu>
+        </StackPanel>
+    </Design.PreviewWith>
+    <Styles.Resources>
+        <!-- 导入转换器 -->
+        <cover:MessageNotification2Visibility x:Key="MessageNotification2Visibility" />
+    </Styles.Resources>
+    <Style Selector="controls|IMenu">
+        <!-- Set Defaults -->
+        <Setter Property="Background" Value="#00FFFFFF"></Setter>
+        <Setter Property="Padding" Value="16 12"></Setter>
+        <Setter Property="CornerRadius" Value="12"></Setter>
+        <Setter Property="Opacity" Value="0.6"></Setter>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <!-- Border -->
+                <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        Padding="{TemplateBinding Padding}">
+                    <!-- Content -->
+                    <Grid ColumnDefinitions="Auto Auto * Auto" x:Name="Grid">
+                        <!-- logo -->
+                        <ContentPresenter Grid.Column="0"
+                                          Content="{TemplateBinding Logo}"
+                                          Margin="0 0 16 0" />
+                        <!-- title -->
+                        <ContentPresenter Grid.Column="1"
+                                          FontSize="16"
+                                          LineHeight="24"
+                                          Content="{TemplateBinding Title}" />
+                        <!-- spacer -->
+                        <Border Grid.Column="2" />
+                        <!-- messageNotification -->
+                        <Border Grid.Column="3" Background="#2563EB" CornerRadius="8" Padding="8 0"
+                                IsVisible="{TemplateBinding MessageNotify,Converter={StaticResource MessageNotification2Visibility}}">
+                            <TextBlock FontSize="16"
+                                       Height="16"
+                                       Text="{TemplateBinding MessageNotify}" />
+                        </Border>
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    <Style Selector="controls|IMenu:pointerover">
+        <Setter Property="Background" Value="#252A41"></Setter>
+        <Setter Property="Opacity" Value="1"></Setter>
+        <!-- 0.2s缓动透明的动画 -->
+        <Style.Animations>
+            <Animation Duration="0:0:0.5">
+                <KeyFrame Cue="0%">
+                    <Setter Property="Opacity" Value="0.6" />
+                </KeyFrame>
+                <KeyFrame Cue="100%">
+                    <Setter Property="Opacity" Value="1" />
+                </KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|IMenu[IsSelected=True]">
+        <Setter Property="Background" Value="#252A41"></Setter>
+        <Setter Property="Opacity" Value="1"></Setter>
+        <!-- 0.2s缓动透明的动画 -->
+        <Style.Animations>
+            <Animation Duration="0:0:0.5">
+                <KeyFrame Cue="0%">
+                    <Setter Property="Opacity" Value="0.6" />
+                </KeyFrame>
+                <KeyFrame Cue="100%">
+                    <Setter Property="Opacity" Value="1" />
+                </KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|IMenu:pressed">
+        <Setter Property="Background" Value="#1E2241"></Setter>
+        <Setter Property="Opacity" Value="1"></Setter>
+        <!-- 按压动画 -->
+        <Style.Animations>
+            <Animation Duration="0:0:0.1">
+                <KeyFrame Cue="0%">
+                    <Setter Property="Opacity" Value="0.6" />
+                </KeyFrame>
+                <KeyFrame Cue="100%">
+                    <Setter Property="Opacity" Value="1" />
+                </KeyFrame>
+            </Animation>
+        </Style.Animations>
+
+    </Style>
+    <Style Selector="controls|IMenu.Min">
+        <Setter Property="Padding" Value="16 8"></Setter>
+    </Style>
+</Styles>

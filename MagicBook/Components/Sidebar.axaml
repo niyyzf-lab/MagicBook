@@ -1,0 +1,123 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:control="using:MagicBook.Components"
+             xmlns:vm="using:MagicBook.ViewModels"
+             xmlns:viewModels="clr-namespace:MagicBook.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="256" d:DesignHeight="1000"
+             Width="256"
+             x:Class="MagicBook.Components.Sidebar"
+             x:DataType="vm:MainWindowViewModel">
+    <Design.DataContext>
+        <!-- ReSharper disable once Xaml.ConstructorWarning -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+    <Panel>
+        <ExperimentalAcrylicBorder IsHitTestVisible="False">
+            <ExperimentalAcrylicBorder.Material>
+                <ExperimentalAcrylicMaterial
+                    BackgroundSource="Digger"
+                    TintColor="#0B1650"
+                    TintOpacity="1"
+                    MaterialOpacity="0.8" />
+            </ExperimentalAcrylicBorder.Material>
+        </ExperimentalAcrylicBorder>
+        <Grid RowDefinitions="Auto Auto Auto * Auto Auto Auto" Margin="12 32">
+            <!-- Logo -->
+            <StackPanel Spacing="8" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Svg Path="/Assets/Icons/icon.svg" Height="40" />
+                <TextBlock Text="MagicBook" FontSize="30" Height="40" FontWeight="ExtraBold"></TextBlock>
+            </StackPanel>
+            <Button Grid.Row="1" Classes="Btn Primary Block" Margin="0 32 0 0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center"
+                            Spacing="6">
+                    <Svg Path="/Assets/Icons/Star.svg"></Svg>
+                    <TextBlock Text="Create" FontWeight="SemiBold" FontSize="16" Foreground="#FFFFFF" Height="16" />
+                </StackPanel>
+            </Button>
+            <StackPanel Grid.Row="2" Spacing="24" Margin="0 24 0 0">
+                <StackPanel.Styles>
+                    <Style Selector="Image">
+                        <Setter Property="Width" Value="24" />
+                        <Setter Property="Height" Value="24" />
+                    </Style>
+                </StackPanel.Styles>
+                <control:IMenu  MessageNotify="5"  SelectedMenu="{Binding SelectedMenuItem, Mode=TwoWay}" Command="{Binding NavigateViewCommand}" CommandParameter="Home">
+                    <control:IMenu.Logo>
+                        <Svg Path="/Assets/Icons/Home.svg" />
+                    </control:IMenu.Logo>
+                    <control:IMenu.Title>
+                        <TextBlock Text="Home" />
+                    </control:IMenu.Title>
+                </control:IMenu>
+                <control:IMenu SelectedMenu="{Binding SelectedMenuItem, Mode=TwoWay}" Command="{Binding NavigateViewCommand}" CommandParameter="Collection">
+                    <control:IMenu.Logo>
+                        <Svg Path="/Assets/Icons/File.svg" />
+                    </control:IMenu.Logo>
+                    <control:IMenu.Title>
+                        <TextBlock Text="Collection" />
+                    </control:IMenu.Title>
+                </control:IMenu>
+                <control:IMenu Command="{Binding NavigateViewCommand}" CommandParameter="Downloads">
+                    <control:IMenu.Logo>
+                        <Svg Path="/Assets/Icons/Filedown.svg" />
+                    </control:IMenu.Logo>
+                    <control:IMenu.Title>
+                        <TextBlock Text="Downloads" />
+                    </control:IMenu.Title>
+                </control:IMenu>
+                <control:IMenu Command="{Binding NavigateViewCommand}" CommandParameter="Chat">
+                    <control:IMenu.Logo>
+                        <Svg Path="/Assets/Icons/Sms.svg" />
+                    </control:IMenu.Logo>
+                    <control:IMenu.Title>
+                        <TextBlock Text="Chat" />
+                    </control:IMenu.Title>
+                </control:IMenu>
+                <control:IMenu Command="{Binding NavigateViewCommand}" CommandParameter="History">
+                    <control:IMenu.Logo>
+                        <Svg Path="/Assets/Icons/History.svg" />
+                    </control:IMenu.Logo>
+                    <control:IMenu.Title>
+                        <TextBlock Text="History" />
+                    </control:IMenu.Title>
+                </control:IMenu>
+            </StackPanel>
+            <StackPanel Grid.Row="5" Spacing="16">
+                <control:IMenu Classes="Min" Command="{Binding NavigateViewCommand}" CommandParameter="Settings">
+                    <control:IMenu.Logo>
+                        <Svg Path="/Assets/Icons/cog.svg"></Svg>
+                    </control:IMenu.Logo>
+                    <control:IMenu.Title>
+                        <TextBlock Text="Settings"></TextBlock>
+                    </control:IMenu.Title>
+                </control:IMenu>
+                <control:IMenu Classes="Min">
+                    <control:IMenu.Logo>
+                        <Svg Path="\Assets\Icons\LogoutR.svg"></Svg>
+                    </control:IMenu.Logo>
+                    <control:IMenu.Title>
+                        <TextBlock Text="Logout"></TextBlock>
+                    </control:IMenu.Title>
+                </control:IMenu>
+            </StackPanel>
+            <Border Grid.Row="6" Margin="0 32 0 0" BorderThickness="2" CornerRadius="12" Padding="-1" BorderBrush="#424867">
+                <Grid ColumnDefinitions="* *" >
+                    <Button Classes="Btn Block Secondary">
+                        <StackPanel Spacing="8" Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Svg Path="\Assets\Icons\Moon.svg"></Svg>
+                            <TextBlock Text="Dark"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Grid.Column="1" Classes="Btn Block Ghost">
+                        <StackPanel Spacing="8" Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Svg Path="\Assets\Icons\Sun.svg"></Svg>
+                            <TextBlock Text="Light"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                </Grid>
+            </Border>
+        </Grid>
+    </Panel>
+</UserControl>

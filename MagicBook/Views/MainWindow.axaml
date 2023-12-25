@@ -1,0 +1,41 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:MagicBook.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:prism="http://prismlibrary.com/"
+        xmlns:controls="using:MagicBook.Components"
+        xmlns:viewModels="clr-namespace:MagicBook.ViewModels"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        CornerRadius="20"
+        mc:Ignorable="d" d:DesignWidth="1536" d:DesignHeight="1000"
+        Width="1546" Height="1000"
+        MinHeight="600" MinWidth="800"
+        TransparencyLevelHint="AcrylicBlur"
+        Background="Transparent"
+        ExtendClientAreaToDecorationsHint="True"
+        x:Class="MagicBook.Views.MainWindow"
+        x:DataType="viewModels:MainWindowViewModel"
+        Icon="/Assets/Icon.ico"
+        Title="MagicBook">
+
+    <Design.DataContext>
+        <!-- ReSharper disable once Xaml.ConstructorWarning -->
+        <viewModels:MainWindowViewModel/>
+    </Design.DataContext>
+    <Panel>
+        <ExperimentalAcrylicBorder IsHitTestVisible="False">
+            <ExperimentalAcrylicBorder.Material>
+                <ExperimentalAcrylicMaterial
+                    BackgroundSource="Digger"
+                    TintColor="#000B48"
+                    TintOpacity="1"
+                    MaterialOpacity="0.8" />
+            </ExperimentalAcrylicBorder.Material>
+        </ExperimentalAcrylicBorder>
+        <Grid ColumnDefinitions="Auto *">
+            <controls:Sidebar/>
+            <ContentControl Grid.Column="1" prism:RegionManager.RegionName="ContentRegion" />
+        </Grid>
+    </Panel>
+</Window>

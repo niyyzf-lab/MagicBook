@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="MagicBook/App.axaml" value="MagicBook/MagicBook.csproj" />
+        <entry key="MagicBook/Components/IMenu.axaml" value="MagicBook/MagicBook.csproj" />
+        <entry key="MagicBook/Components/Sidebar.axaml" value="MagicBook/MagicBook.csproj" />
+        <entry key="MagicBook/Views/ChatPage.axaml" value="MagicBook/MagicBook.csproj" />
+        <entry key="MagicBook/Views/CollectionPage.axaml" value="MagicBook/MagicBook.csproj" />
+        <entry key="MagicBook/Views/HistoryPage.axaml" value="MagicBook/MagicBook.csproj" />
+        <entry key="MagicBook/Views/MainWindow.axaml" value="MagicBook/MagicBook.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

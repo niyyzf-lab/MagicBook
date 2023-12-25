@@ -1,0 +1,20 @@
+<prism:PrismApplication xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="MagicBook.App"
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:magicBook="clr-namespace:MagicBook"
+             RequestedThemeVariant="Dark">
+             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+    <Application.DataTemplates>
+        <magicBook:ViewLocator/>
+    </Application.DataTemplates>
+
+
+    <Application.Styles>
+        <FluentTheme />
+        <StyleInclude Source="/Styles/ButtonStyle.axaml"/>
+        <StyleInclude Source="/Styles/FontStyle.axaml"/>
+        <StyleInclude Source="/Components/IMenu.axaml"/>
+    </Application.Styles>
+</prism:PrismApplication>

@@ -1,0 +1,58 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="10">
+            <StackPanel HorizontalAlignment="Center" Spacing="10">
+                <Button Content="Primary" Classes="Btn Primary" />
+                <Button Content="Secondary" Classes="Btn Secondary" />
+                <Button Content="Danger" Classes="Btn Danger" />
+                <Button Content="Ghost" Classes="Btn Ghost" />
+            </StackPanel>
+        </Border>
+    </Design.PreviewWith>
+
+    <Style Selector="Button.Btn">
+        <Setter Property="Padding" Value="16 12" />
+        <Setter Property="FontSize" Value="14"></Setter>
+        <Setter Property="Opacity" Value="1"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border Width="{TemplateBinding Width}" Height="{TemplateBinding Height}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Opacity="{TemplateBinding Opacity}"
+                            BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="12"
+                            Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
+                        <ContentPresenter Content="{TemplateBinding Content}" VerticalAlignment="Stretch"
+                                          HorizontalAlignment="Stretch" CornerRadius="12" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style Selector="Button.Primary">
+        <Setter Property="Background" Value="#2563EB" />
+    </Style>
+    <Style Selector="Button.Primary:pointerover">
+        <Setter Property="Background" Value="#1E40AF" />
+    </Style>
+    <Style Selector="Button.Secondary">
+        <Setter Property="Background" Value="#424867" />
+    </Style>
+    <Style Selector="Button.Danger">
+        <Setter Property="Background" Value="#DC2626" />
+    </Style>
+    <Style Selector="Button.Ghost">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Opacity" Value="0.6"></Setter>
+    </Style>
+    <Style Selector="Button.Ghost:pointerover">
+        <Setter Property="Opacity" Value="1"></Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="Background" Value="#20FFFFFF" />
+    </Style>
+    <Style Selector="Button.Block">
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+    </Style>
+
+</Styles>
