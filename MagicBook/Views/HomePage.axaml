@@ -2,7 +2,73 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:prism="http://prismlibrary.com/"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="MagicBook.Views.HomePage">
-    Welcome to Home!
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             x:Class="MagicBook.Views.HomePage" Margin="72 32 64 0">
+     <Grid RowDefinitions="Auto Auto *">
+         <!-- Header -->
+         <Grid ColumnDefinitions="auto * auto" Margin="0 0 0 32">
+             <!-- Search -->
+             <Border BorderBrush="#374151" BorderThickness="2" CornerRadius="12" Width="228">
+                 <Border.Styles>
+                     <Style Selector="TextBox:focus">
+                         <Setter Property="Background" Value="Transparent" />
+                         <Setter Property="Padding" Value="16 12"/>
+                     </Style>
+                     <Style Selector="TextBox">
+                         <Setter Property="Background" Value="Transparent" />
+                         <Setter Property="Padding" Value="44 12 16 12"/>
+                         <Setter Property="Watermark" Value="Search" />
+                         <Setter Property="BorderBrush" Value="Transparent" />
+                         <Setter Property="CornerRadius" Value="12" />
+                         <Setter Property="Margin" Value="-2"></Setter>
+                         <Setter Property="BorderThickness" Value="2"/>
+                         <Setter Property="FontSize" Value="18" />
+                         <Setter Property="FontWeight" Value="Bold" />
+                     </Style>
+                 </Border.Styles>
+                 <Grid>
+                     <Svg Path="\Assets\Icons\Search.svg" Height="20" Width="20" HorizontalAlignment="Left" Margin="16 0 0 0" Opacity="0.6"/>
+                     <TextBox></TextBox>
+                 </Grid>
+             </Border>
+             <StackPanel  Grid.Column="2" Spacing="8" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                 <Border CornerRadius="50" Height="44" Width="44">
+                     <Border.Background>
+                         <ImageBrush Source="/Assets/Img/PerSon1.png" />
+                     </Border.Background></Border>
+                 <StackPanel>
+                     <TextBlock Text="Nicholas Turner" FontSize="14"/>
+                     <TextBlock Text="SaaS Blocks LLC" FontSize="14" Foreground="#9CA3AF"></TextBlock>
+                 </StackPanel>
+                 <Svg Path="/Assets/Icons/Arrow.svg"  Width="16" Opacity="0.7"/>
+                 <Button Classes="Btn Ghost" BorderThickness="2" BorderBrush="#374151" Padding="12">
+                     <Svg Path="/Assets/Icons/Bell.svg" Opacity="0.6"/>
+                 </Button>
+             </StackPanel>
+         </Grid>
+         <!-- dividingLine -->
+         <Separator Grid.Row="1" Margin="-1" Foreground="#374151" Height="1" CornerRadius="5" Opacity="0.6"/>
+         <!-- Body -->
+         <Grid Grid.Row="2" ColumnDefinitions="* 24 * 24 * 24 * ">
+             <ItemsControl >
+                 <Button HorizontalAlignment="Stretch">12312</Button>
+             </ItemsControl>
+             <ItemsControl Grid.Column="2">
+
+                 <Border BorderThickness="3" BorderBrush="#2C314D"  CornerRadius="10">
+                     <Border CornerRadius="10" ClipToBounds="True" Margin="-1" >
+                         <Image Source="/Assets/Img/Img2.png" Stretch="UniformToFill"></Image>
+                     </Border>
+                 </Border>
+             </ItemsControl>
+             <ItemsControl Grid.Column="4">
+                 <Button>12312</Button>
+             </ItemsControl>
+             <ItemsControl Grid.Column="6">
+                 <Button>12312</Button>
+             </ItemsControl>
+         </Grid>
+     </Grid>
 </UserControl>

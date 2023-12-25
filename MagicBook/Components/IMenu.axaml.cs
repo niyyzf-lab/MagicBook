@@ -30,14 +30,15 @@ public class IMenu :Button
         set => SetValue(MessageNotifyProperty, value);
     }
 
-    // SelectedMenu
+    // IsSelected
 
-    public static readonly StyledProperty<string?> SelectedMenuProperty = AvaloniaProperty.Register<IMenu, string?>(
-        nameof(SelectedMenu));
+    public static readonly StyledProperty<bool?> IsSelectedProperty = AvaloniaProperty.Register<IMenu, bool?>(
+        nameof(IsSelected));
 
-    public string? SelectedMenu
+    public bool? IsSelected
     {
-        get => GetValue(SelectedMenuProperty);
-        set => SetValue(SelectedMenuProperty, value);
+        get => GetValue(IsSelectedProperty);
+        set => SetValue(IsSelectedProperty, value);
     }
+
 }

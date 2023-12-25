@@ -16,5 +16,6 @@
         <StyleInclude Source="/Styles/ButtonStyle.axaml"/>
         <StyleInclude Source="/Styles/FontStyle.axaml"/>
         <StyleInclude Source="/Components/IMenu.axaml"/>
+        <StyleInclude Source="/Styles/Image.axaml" />
     </Application.Styles>
 </prism:PrismApplication>

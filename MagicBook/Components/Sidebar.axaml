@@ -4,15 +4,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:control="using:MagicBook.Components"
              xmlns:vm="using:MagicBook.ViewModels"
-             xmlns:viewModels="clr-namespace:MagicBook.ViewModels"
+             xmlns:cover="using:MagicBook.Helper.Cover"
              mc:Ignorable="d" d:DesignWidth="256" d:DesignHeight="1000"
              Width="256"
              x:Class="MagicBook.Components.Sidebar"
              x:DataType="vm:MainWindowViewModel">
-    <Design.DataContext>
-        <!-- ReSharper disable once Xaml.ConstructorWarning -->
-        <vm:MainWindowViewModel/>
-    </Design.DataContext>
+    <UserControl.Resources>
+            <cover:EqualityConverter x:Key="EqualityConverter" />
+    </UserControl.Resources>
+
     <Panel>
         <ExperimentalAcrylicBorder IsHitTestVisible="False">
             <ExperimentalAcrylicBorder.Material>
@@ -43,7 +43,9 @@
                         <Setter Property="Height" Value="24" />
                     </Style>
                 </StackPanel.Styles>
-                <control:IMenu  MessageNotify="5"  SelectedMenu="{Binding SelectedMenuItem, Mode=TwoWay}" Command="{Binding NavigateViewCommand}" CommandParameter="Home">
+                <control:IMenu
+                    IsSelected="{Binding SelectedMenuItem,Converter={StaticResource EqualityConverter} ,ConverterParameter=Home}"
+                    MessageNotify="5" Command="{Binding NavigateViewCommand}" CommandParameter="Home">
                     <control:IMenu.Logo>
                         <Svg Path="/Assets/Icons/Home.svg" />
                     </control:IMenu.Logo>
@@ -51,7 +53,7 @@
                         <TextBlock Text="Home" />
                     </control:IMenu.Title>
                 </control:IMenu>
-                <control:IMenu SelectedMenu="{Binding SelectedMenuItem, Mode=TwoWay}" Command="{Binding NavigateViewCommand}" CommandParameter="Collection">
+                <control:IMenu IsSelected="{Binding SelectedMenuItem,Converter={StaticResource EqualityConverter} ,ConverterParameter=Collection}" Command="{Binding NavigateViewCommand}" CommandParameter="Collection">
                     <control:IMenu.Logo>
                         <Svg Path="/Assets/Icons/File.svg" />
                     </control:IMenu.Logo>
@@ -59,7 +61,7 @@
                         <TextBlock Text="Collection" />
                     </control:IMenu.Title>
                 </control:IMenu>
-                <control:IMenu Command="{Binding NavigateViewCommand}" CommandParameter="Downloads">
+                <control:IMenu IsSelected="{Binding SelectedMenuItem,Converter={StaticResource EqualityConverter} ,ConverterParameter=Downloads}" Command="{Binding NavigateViewCommand}" CommandParameter="Downloads">
                     <control:IMenu.Logo>
                         <Svg Path="/Assets/Icons/Filedown.svg" />
                     </control:IMenu.Logo>
@@ -67,7 +69,7 @@
                         <TextBlock Text="Downloads" />
                     </control:IMenu.Title>
                 </control:IMenu>
-                <control:IMenu Command="{Binding NavigateViewCommand}" CommandParameter="Chat">
+                <control:IMenu IsSelected="{Binding SelectedMenuItem,Converter={StaticResource EqualityConverter} ,ConverterParameter=Chat}" Command="{Binding NavigateViewCommand}" CommandParameter="Chat">
                     <control:IMenu.Logo>
                         <Svg Path="/Assets/Icons/Sms.svg" />
                     </control:IMenu.Logo>
@@ -75,7 +77,7 @@
                         <TextBlock Text="Chat" />
                     </control:IMenu.Title>
                 </control:IMenu>
-                <control:IMenu Command="{Binding NavigateViewCommand}" CommandParameter="History">
+                <control:IMenu IsSelected="{Binding SelectedMenuItem,Converter={StaticResource EqualityConverter} ,ConverterParameter=History}" Command="{Binding NavigateViewCommand}" CommandParameter="History">
                     <control:IMenu.Logo>
                         <Svg Path="/Assets/Icons/History.svg" />
                     </control:IMenu.Logo>
@@ -85,7 +87,7 @@
                 </control:IMenu>
             </StackPanel>
             <StackPanel Grid.Row="5" Spacing="16">
-                <control:IMenu Classes="Min" Command="{Binding NavigateViewCommand}" CommandParameter="Settings">
+                <control:IMenu Classes="Min" IsSelected="{Binding SelectedMenuItem,Converter={StaticResource EqualityConverter} ,ConverterParameter=Settings}" Command="{Binding NavigateViewCommand}" CommandParameter="Settings">
                     <control:IMenu.Logo>
                         <Svg Path="/Assets/Icons/cog.svg"></Svg>
                     </control:IMenu.Logo>

@@ -12,6 +12,7 @@ namespace MagicBook.ViewModels
             regionManager.RegisterViewWithRegion("ContentRegion", typeof(HomePage));
             _regionManager = regionManager;
         }
+
         public DelegateCommand<string> NavigateViewCommand { get; private set; }
 
 
@@ -19,13 +20,22 @@ namespace MagicBook.ViewModels
         private void NavigateView(string uri)
         {
             _regionManager.RequestNavigate("ContentRegion", uri);
+            SelectedMenuItem = uri;
         }
-        private string? _selectedMenuItem;
+
+        private string? _selectedMenuItem = "Home";
 
         public string? SelectedMenuItem
         {
             get => _selectedMenuItem;
-            set => SetProperty(ref _selectedMenuItem, value);
+            set
+            {
+                if (_selectedMenuItem == value)
+                    return;
+
+                SetProperty(ref _selectedMenuItem, value);
+                RaisePropertyChanged(nameof(SelectedMenuItem));
+            }
         }
     }
 }
