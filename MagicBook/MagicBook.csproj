@@ -32,6 +32,6 @@
 
   <ItemGroup>
     <Folder Include="Assets\Icons\" />
-    <Folder Include="ResourceDate\" />
+    <Folder Include="Resource\" />
   </ItemGroup>
 </Project>
