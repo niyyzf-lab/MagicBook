@@ -57,11 +57,7 @@
              </ItemsControl>
              <ItemsControl Grid.Column="2">
 
-                 <Border BorderThickness="3" BorderBrush="#2C314D"  CornerRadius="10">
-                     <Border CornerRadius="10" ClipToBounds="True" Margin="-1" >
-                         <Image Source="/Assets/Img/Img2.png" Stretch="UniformToFill"></Image>
-                     </Border>
-                 </Border>
+
              </ItemsControl>
              <ItemsControl Grid.Column="4">
                  <Button>12312</Button>

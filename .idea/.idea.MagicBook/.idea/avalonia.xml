@@ -9,6 +9,7 @@
         <entry key="MagicBook/Components/Sidebar.axaml" value="MagicBook/MagicBook.csproj" />
         <entry key="MagicBook/Styles/ButtonStyle.axaml" value="MagicBook/MagicBook.csproj" />
         <entry key="MagicBook/Styles/FontStyle.axaml" value="MagicBook/MagicBook.csproj" />
+        <entry key="MagicBook/Styles/Image.axaml" value="MagicBook/MagicBook.csproj" />
         <entry key="MagicBook/Views/ChatPage.axaml" value="MagicBook/MagicBook.csproj" />
         <entry key="MagicBook/Views/CollectionPage.axaml" value="MagicBook/MagicBook.csproj" />
         <entry key="MagicBook/Views/HistoryPage.axaml" value="MagicBook/MagicBook.csproj" />

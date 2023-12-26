@@ -2,7 +2,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="using:MagicBook.Components">
     <Design.PreviewWith>
-        <controls:ICard Width="200"/>
+        <controls:ICard Width="256" Title="Patty Stone" LikeNumber="24" BrowseNumber="24">
+            <controls:ICard.Image>
+                <Image Source="/Assets/Img/Img2.png" Stretch="UniformToFill"></Image>
+            </controls:ICard.Image>
+            <controls:ICard.Avatar>
+                <Image Source="/Assets/Img/PerSon1.png" />
+            </controls:ICard.Avatar>
+        </controls:ICard>
     </Design.PreviewWith>
 
     <Style Selector="controls|ICard">
@@ -10,7 +17,27 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <StackPanel Spacing="16">
-                    <Image></Image>
+                    <Border BorderThickness="4" BorderBrush="#2C314D"  CornerRadius="10">
+                        <Border CornerRadius="10" ClipToBounds="True" Margin="-1" >
+                                <ContentPresenter Content="{TemplateBinding Image}" />
+                        </Border>
+                    </Border>
+                    <Grid ColumnDefinitions="Auto Auto * Auto 16 Auto  " Height="30" >
+                        <Border CornerRadius="50" ClipToBounds="True" Margin="0 0 8 0" >
+                            <ContentPresenter Content="{TemplateBinding Avatar}" />
+                        </Border>
+                        <ContentPresenter Grid.Column="1" Content="{TemplateBinding Title}" FontSize="12"  LineHeight="12"/>
+                        <StackPanel Grid.Column="3" Orientation="Horizontal" Spacing="16" Opacity="0.6">
+                            <StackPanel  Orientation="Horizontal" Spacing="4">
+                                <Svg  Path="/Assets/Icons/Heart.svg" Height="18" Width="18"/>
+                                <TextBlock  Text="{TemplateBinding LikeNumber}" FontSize="12"  LineHeight="12"  />
+                            </StackPanel>
+                            <StackPanel  Orientation="Horizontal" Spacing="4">
+                                <Svg  Path="/Assets/Icons/Eye.svg" Height="18" Width="18"/>
+                                <TextBlock  Text="{TemplateBinding BrowseNumber}" FontSize="12"  LineHeight="12"  />
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
                 </StackPanel>
             </ControlTemplate>
         </Setter>
